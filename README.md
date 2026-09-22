@@ -4,12 +4,12 @@ This is still an actively maintained project....
 
 ## TODO
 
-- [] Replace the dummy `seed::Add` API with real daemon logic
+- [ ] Replace the dummy `seed::Add` API with real daemon logic
 
-- [] Read and parse `/proc/net/dev` at a set interval
-- [] If condition is met, hold the inhibitor lock (using `org.freedesktop.login1`
+- [ ] Read and parse `/proc/net/dev` at a set interval
+- [ ] If condition is met, hold the inhibitor lock (using `org.freedesktop.login1`
 D-Bus interface)
-- [] Add daemon config handling
+- [ ] Add daemon config handling
 - [x] Add daemon lifecycle (and diagnostic) log writing functionality to systemd journal
 
 # Running Tests
