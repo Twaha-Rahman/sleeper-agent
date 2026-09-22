@@ -7,6 +7,11 @@ This is still an actively maintained project....
 - Replace the dummy `seed::Add` API with real daemon logic
 - Add daemon lifecycle handling (config, logging, graceful shutdown)
 
+- Read and parse `/proc/net/dev` at a set interval
+- If condition is met, hold the inhibitor lock (using `org.freedesktop.login1`
+D-Bus interface)
+- Add daemon lifecycle (and diagnostic) log writing functionality to systemd journal
+
 # Running Tests
 
 The tests use [GoogleTest](https://github.com/google/googletest), which is

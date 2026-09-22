@@ -10,7 +10,8 @@ namespace {
 // NOLINTNEXTLINE(cppcoreguidelines-avoid-non-const-global-variables)
 std::atomic<bool> g_running{true};
 
-void HandleSignal(int /*signal*/) { g_running.store(false); }
+// NOLINTNEXTLINE(readability-identifier-length)
+void HandleSignal(int _) { g_running.store(false); }
 } // namespace
 
 int main() { // NOLINT(bugprone-exception-escape)
