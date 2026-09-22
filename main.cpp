@@ -1,4 +1,4 @@
-#include "libseed.hpp"
+#include "libsleeperagent.hpp"
 
 #include <bits/types/sigset_t.h>
 #include <chrono>
@@ -15,7 +15,7 @@
 
 int main() {
   // NOLINTNEXTLINE
-  int _ = seed::Add(2, 3);
+  int _ = utils::Add(2, 3);
 
   // handle SIGINT so it isn't handled the default way
   sigset_t mask;

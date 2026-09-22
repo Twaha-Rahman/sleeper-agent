@@ -1,9 +1,9 @@
 include(GoogleTest)
 
-add_executable(test_libseed test_libseed.cpp)
+add_executable(test_libsleeperagent test_libsleeperagent.cpp)
 
-target_link_libraries(test_libseed PRIVATE libseed GTest::gtest_main)
+target_link_libraries(test_libsleeperagent PRIVATE libsleeperagent GTest::gtest_main)
 
-target_compile_options(test_libseed PRIVATE -Wall -Wextra -Wpedantic)
+target_compile_options(test_libsleeperagent PRIVATE -Wall -Wextra -Wpedantic)
 
-gtest_discover_tests(test_libseed)
+gtest_discover_tests(test_libsleeperagent)

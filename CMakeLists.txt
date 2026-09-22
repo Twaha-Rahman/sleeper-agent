@@ -2,7 +2,7 @@ cmake_minimum_required(VERSION 3.20)
 
 project(sleeper-agent
         VERSION 0.1.0
-        DESCRIPTION "Daemon executable with a dummy libseed library."
+        DESCRIPTION "SleeperAgent: A download detecting sleep-stopping daemon"
         LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD 23)
@@ -27,27 +27,27 @@ FetchContent_MakeAvailable(googletest)
 
 enable_testing()
 
-add_library(libseed SHARED libseed/libseed.cpp)
+add_library(libsleeperagent SHARED libsleeperagent/libsleeperagent.cpp)
 
 add_executable(${PROJECT_NAME} main.cpp)
 
-target_link_libraries(${PROJECT_NAME} PRIVATE libseed PkgConfig::SYSTEMD)
+target_link_libraries(${PROJECT_NAME} PRIVATE libsleeperagent PkgConfig::SYSTEMD)
 
-target_include_directories(libseed PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/libseed)
+target_include_directories(libsleeperagent PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/libsleeperagent)
 
-target_compile_options(libseed PRIVATE
+target_compile_options(libsleeperagent PRIVATE
                         -Wall -Wextra -Wpedantic)
 
 target_compile_options(${PROJECT_NAME} PRIVATE
                         -Wall -Wextra -Wpedantic)
 
-target_compile_options(libseed PUBLIC
+target_compile_options(libsleeperagent PUBLIC
   $<$<CONFIG:Debug>:-O0 -g>
   $<$<CONFIG:Release>:-O3>
 )
 
 include(ClangTidy)
-AddClangTidy(libseed)
+AddClangTidy(libsleeperagent)
 AddClangTidy(${PROJECT_NAME})
 
 include(Valgrind)

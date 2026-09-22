@@ -4,7 +4,7 @@ This is still an actively maintained project....
 
 ## TODO
 
-- [ ] Replace the dummy `seed::Add` API with real daemon logic
+- [ ] Replace the dummy `sleeperagent::Add` API with real daemon logic
 
 - [ ] Read and parse `/proc/net/dev` at a set interval
 - [ ] If condition is met, hold the inhibitor lock (using `org.freedesktop.login1`
@@ -28,7 +28,7 @@ To run all the tests, the following commands below should be run from the
 
 We can also run the test binary directly for more detailed output:
 ```bash
-./build/tests/test_libseed
+./build/tests/test_libsleeperagent
 ```
 
 # Running AddressSanitizer (ASAN)
@@ -70,7 +70,7 @@ GDB. This will load the libraries and allow us to set breakpoints. For example:
 ```
 b main
 r
-b libseed.cpp:5
+b libsleeperagent.cpp:5
 ```
 
 ## Seeing the source code in the upper-half of the screen (in TUI)
