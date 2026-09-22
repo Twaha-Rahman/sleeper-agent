@@ -13,6 +13,9 @@ list(APPEND CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake")
 
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
+find_package(PkgConfig REQUIRED)
+pkg_check_modules(SYSTEMD REQUIRED IMPORTED_TARGET libsystemd)
+
 include(FetchContent)
 FetchContent_Declare(
   googletest
@@ -28,7 +31,7 @@ add_library(libseed SHARED libseed/libseed.cpp)
 
 add_executable(${PROJECT_NAME} main.cpp)
 
-target_link_libraries(${PROJECT_NAME} PRIVATE libseed)
+target_link_libraries(${PROJECT_NAME} PRIVATE libseed PkgConfig::SYSTEMD)
 
 target_include_directories(libseed PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/libseed)
 
