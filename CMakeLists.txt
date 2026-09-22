@@ -13,6 +13,17 @@ list(APPEND CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}/cmake")
 
 set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
+include(FetchContent)
+FetchContent_Declare(
+  googletest
+  URL https://github.com/google/googletest/archive/v1.15.2.zip
+)
+set(BUILD_GMOCK OFF CACHE BOOL "" FORCE)
+set(INSTALL_GTEST OFF CACHE BOOL "" FORCE)
+FetchContent_MakeAvailable(googletest)
+
+enable_testing()
+
 add_library(libseed SHARED libseed/libseed.cpp)
 
 add_executable(${PROJECT_NAME} main.cpp)
@@ -38,3 +49,5 @@ AddClangTidy(${PROJECT_NAME})
 
 include(Valgrind)
 AddValgrind(${PROJECT_NAME})
+
+add_subdirectory(tests)
